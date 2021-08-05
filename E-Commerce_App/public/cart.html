@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title> Cart</title>
+</head>
+<body>    
+        <table>
+            <tr>
+                <td id="waffles">waffles</td>
+                <td><input type="text" id="qty1"></td>
+                <td><button id="add1">add</button></td>
+            </tr>
+            <tr>
+                <td id="chocolate">chocolate</td>
+                <td><input type="text" id="qty2"></td>
+                <td><button id="add2">add</button></td>
+            </tr>
+            <tr>
+                <td id="ice-cream">ice-cream</td>
+                <td><input type="text"id="qty3"></td>
+                <td><button id="add3">add</button></td>
+            </tr>
+            <tr>
+                <td id="chocobar">chocobar</td>
+                <td><input type="text"id="qty4"></td>
+                <td><button id="add4">add</button></td>
+            </tr>
+            <tr>
+               <td></td>
+                <td><button id="process">Checkout</button></td>
+                <td><button id="cancel">Cancel Order</button></td>
+            </tr>
+        </table>
+        <script>
+            $(document).ready(function(){
+                $("#add1").click(function(){
+                    var q1=$("#qty1").val();
+                    var name=$("#waffles").text();
+                    console.log(name)
+                    var prod_data={
+                        orderid=orderid,
+                        itemname:name,
+                        quantity:q1
+                    }
+                    $.ajax({
+                   type:"POST",
+                   url:"/api/orderitems",
+                   data:prod_data,
+                   success:function(result){
+                        console.log("Item gets added");
+                    }
+               })
+            }); 
+            
+            $("#checkout").click(function(){
+                if(typeof(storage)!== undefined){
+                    sessionStorage.setItem("waffles",$("qty1").val());
+                    sessionStorage.setItem("chocolate",$("qty2").val());
+                    sessionStorage.setItem("ice-cream",$("qty3").val());
+                    sessionStorage.setItem("chocobar",$("qty4").val());
+                    window.location.href="./bill.html";
+                }
+            });         
+        });
+        </script>
+</body>
+</html>

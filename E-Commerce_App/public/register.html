@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index</title>
+<style>
+    table{margin-left: auto; margin-right: auto; padding-top: 20px;}
+    tr{text-align: center; color:rgb(4, 129, 4);}
+    td{text-align: center;}
+    form{text-align: center;}
+</style>
+</head>
+<body style="text-align: center;">
+    <h1>Registration Form Demo</h1>
+    <hr/>
+    <a href="/">Index</a> | <a href="login.html">Login</a> | <a href="register.html">Register</a>
+    <br>
+   <form action="/api/register"  method="POST" >
+<table style="text-align: center;">
+<tr >
+    <td><label>Firstname</label></td>
+    <td><input type="text" name="firstname" required></td>
+</tr>
+<tr>
+    <td><label>Lastname</label></td>
+    <td><input type="text" name="lastname" required></td>
+</tr>
+<tr>
+    <td><label>Email</label></td>
+    <td><input type="text" name="email" required></td>
+</tr>
+<tr>
+    <td><label>User Name</label></td>
+    <td><input type="text" name="username" required></td>
+</tr>
+<tr>
+    <td><label>Passowrd</label></td>
+    <td><input type="password" name="password" required></td>
+</tr>
+<tr>
+    <td><label>Contact</label></td>
+    <td><input type="text" name="contact" required></td>
+</tr>
+<tr></tr>
+<tr>
+    <td></td>
+    <td><button type="submit">Register</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

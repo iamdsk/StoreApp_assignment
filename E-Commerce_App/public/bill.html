@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Payment</title>
+</head>
+<body>
+    <div id="div1">Amount to paid</div>
+<div><button id="process">Process</button></div>
+<div><button id="cancel">Cancel</button></div>
+    <script>
+        $(document).ready(function(){
+                    $("#process").click(function(){
+                        $.ajax({
+                            type:"GET",
+                            url:"/api/orders/"+2,
+                            success:function(result){
+                                console.log(result)
+                                $("#div1").text($("#div1").text()+result );
+                            }
+                        })
+                    })
+                    $("#cancel").click(function(){
+                        $.ajax({
+                            type:"DELETE",
+                            url:"/api/orders/"+2,
+                            success:function(result){
+                               // console.log(result)
+                                $("#div1").text("Order cancelled ");
+                            }
+                        })
+                    })
+        })
+    </script>
+</body>
+</html>
